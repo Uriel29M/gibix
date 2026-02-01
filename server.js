@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const PORT = process.env.PORT || 3000; // ⚡ Porta dinâmica para Render
+const PORT = process.env.PORT || 3000; // Porta dinâmica para Render
 
 // ======== MIDDLEWARES ========
 app.use(cors());
@@ -17,6 +17,7 @@ const baseDir = "uploads";
 const avatarDir = path.join(baseDir, "avatar");
 const bannerDir = path.join(baseDir, "banner");
 
+// Cria pastas se não existirem
 [baseDir, avatarDir, bannerDir].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
@@ -35,16 +36,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-// Serve arquivos do frontend
-app.use(express.static("public"));
 
-// ======== ROTAS ========
-
-// Rota teste
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
-});
-
+// ======== ROTAS API ========
 
 // Upload de avatar
 app.post("/upload/avatar", upload.single("avatar"), (req, res) => {
@@ -58,6 +51,19 @@ app.post("/upload/banner", upload.single("banner"), (req, res) => {
 
 // Servir imagens publicamente
 app.use("/uploads", express.static(baseDir));
+
+// ======== FRONTEND ========
+app.use(express.static(path.join(__dirname, "public")));
+
+// Rota raiz
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// SPA catch-all: qualquer outra rota do frontend
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // ======== INICIAR SERVIDOR ========
 app.listen(PORT, () => {
