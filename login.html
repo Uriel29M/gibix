@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Login — GIBIX</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+/* CONTAINER CENTRAL */
+.login-wrapper{
+  width:100%;
+  max-width:420px;
+  padding:20px;
+}
+
+/* CARD DE LOGIN */
+.login-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+/* LOGO */
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  color:var(--primary);
+  letter-spacing:1px;
+  margin-bottom:24px;
+}
+
+.logo span{
+  color:var(--secondary);
+}
+
+/* TÍTULO */
+.login-card h2{
+  margin-top:0;
+  text-align:center;
+}
+
+/* SUBTEXTO */
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+/* INPUTS */
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+.field label{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.field input{
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+}
+
+/* BOTÃO PRINCIPAL */
+.btn{
+  width:100%;
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* LINKS */
+.links{
+  display:flex;
+  justify-content:space-between;
+  margin-top:14px;
+  font-size:14px;
+}
+
+.links a{
+  color:var(--secondary);
+  text-decoration:none;
+}
+
+/* DIVISOR */
+.divider{
+  text-align:center;
+  margin:16px 0;
+  color:var(--muted);
+}
+
+/* BOTÃO GOOGLE */
+.google-btn{
+  width:100%;
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* RODAPÉ */
+.signup{
+  text-align:center;
+  margin-top:16px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <div class="logo">GIB<span>IX</span></div>
+
+    <h2>Entrar na sua conta</h2>
+    <p class="subtitle">Entre para compartilhar, descobrir e criar wikis</p>
+
+    <div class="field">
+      <label>Email ou @usuário</label>
+      <input type="text" placeholder="seuemail@gibix.com ou @seuusuario">
+    </div>
+
+    <div class="field">
+      <label>Senha</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <button class="btn">Entrar</button>
+
+    <div class="links">
+      <a href="#">Esqueci minha senha</a>
+      <a href="cadastro.html">Criar conta</a>
+    </div>
+
+    <div class="divider">ou</div>
+
+    <button class="google-btn">
+      Entrar com Google
+    </button>
+
+    <div class="signup">
+      Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

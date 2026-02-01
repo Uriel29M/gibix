@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>GIBIX — Chats</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout geral */
+.app{
+  display:grid;
+  grid-template-columns: 240px 350px 1fr;
+  height:100vh;
+}
+
+/* Sidebar igual às outras páginas */
+.sidebar{
+  background: var(--card);
+  border-right:1px solid var(--border);
+  padding:16px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:var(--primary);
+  letter-spacing: 1px;
+}
+
+.logo span{
+  color: var(--secondary);
+}
+
+.nav a{
+  display:block;
+  padding:10px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+
+.nav a:hover{
+  background:#1f2937;
+}
+
+/* LISTA DE CHATS (coluna do meio) */
+.chat-list{
+  background: var(--card);
+  border-right:1px solid var(--border);
+  padding:16px;
+  overflow-y:auto;
+}
+
+.chat-list h2{
+  margin-top:0;
+  color:var(--secondary);
+}
+
+.chat-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.chat-tabs button{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.chat-tabs button.active{
+  background:var(--primary);
+  border:none;
+}
+
+/* Itens de chat */
+.chat-item{
+  background:#020617;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin-bottom:8px;
+  cursor:pointer;
+}
+
+.chat-item:hover{
+  background:#0b1220;
+}
+
+/* Área principal do chat */
+.chat-area{
+  display:flex;
+  flex-direction:column;
+  background:var(--bg);
+}
+
+/* Cabeçalho do chat */
+.chat-header{
+  background:var(--card);
+  padding:14px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.chat-avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#334155;
+}
+
+/* Mensagens */
+.messages{
+  flex:1;
+  padding:16px;
+  overflow-y:auto;
+}
+
+/* Mensagem individual */
+.message{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  max-width:70%;
+  margin-bottom:10px;
+}
+
+/* Mensagem minha */
+.me{
+  margin-left:auto;
+  background:#1f2937;
+}
+
+/* Input de mensagem */
+.chat-input{
+  display:flex;
+  padding:12px;
+  gap:8px;
+  background:var(--card);
+  border-top:1px solid var(--border);
+}
+
+.chat-input input{
+  flex:1;
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+}
+
+.chat-input button{
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">GIB<span>IX</span></div>
+
+  <div class="nav">
+    <a href="index.html">🏠 Feed</a>
+    <a href="wiki.html">📚 Wikis</a>
+    <a href="perfil.html">🦸 Perfil</a>
+    <a href="chat.html">💬 Chats</a>
+    <a href="notificacoes.html">🔔 Notificações</a>
+    <a href="configuracoes.html">⚙️ Configurações</a>
+  </div>
+</div>
+
+
+<!-- COLUNA DE LISTA DE CHATS -->
+<div class="chat-list">
+
+  <h2>Chats</h2>
+
+  <div class="chat-tabs">
+    <button class="active">Grupos Públicos</button>
+    <button>Mensagens Privadas</button>
+  </div>
+
+  <h3 style="color:var(--secondary)">Grupos Públicos</h3>
+
+  <div class="chat-item">
+    💬 GIBIX Geral  
+    <div style="color:var(--muted); font-size:12px;">245 membros</div>
+  </div>
+
+  <div class="chat-item">
+    💬 Fãs de DC  
+    <div style="color:var(--muted); font-size:12px;">132 membros</div>
+  </div>
+
+  <div class="chat-item">
+    💬 Mangás & HQs  
+    <div style="color:var(--muted); font-size:12px;">98 membros</div>
+  </div>
+
+  <hr style="border-color:var(--border)">
+
+  <h3 style="color:var(--secondary)">Mensagens Privadas</h3>
+
+  <div class="chat-item">
+    👤 @quadrinista  
+    <div style="color:var(--muted); font-size:12px;">Última mensagem: ontem</div>
+  </div>
+
+  <div class="chat-item">
+    👤 @mangaka  
+    <div style="color:var(--muted); font-size:12px;">Última mensagem: 2h</div>
+  </div>
+
+</div>
+
+<!-- ÁREA PRINCIPAL DO CHAT -->
+<div class="chat-area">
+
+  <div class="chat-header">
+    <div class="chat-avatar"></div>
+    <div>
+      <b>💬 GIBIX Geral</b>
+      <div style="color:var(--muted); font-size:12px;">Chat público • 245 membros</div>
+    </div>
+  </div>
+
+  <div class="messages">
+
+    <div class="message">
+      <b>@mangaka:</b> Alguém já leu Akira?
+    </div>
+
+    <div class="message">
+      <b>@colecionador:</b> Sim! Obra-prima absoluta 🔥
+    </div>
+
+    <div class="message me">
+      <b>Você:</b> Estou lendo agora, incrível!
+    </div>
+
+  </div>
+
+  <div class="chat-input">
+    <input placeholder="Digite sua mensagem...">
+    <button>Enviar</button>
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

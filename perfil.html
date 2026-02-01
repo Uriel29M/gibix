@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>GIBIX — Perfil</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout geral */
+.app{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  height:100vh;
+}
+
+/* Sidebar igual ao feed */
+.sidebar{
+  background: var(--card);
+  border-right:1px solid var(--border);
+  padding:16px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:var(--primary);
+  letter-spacing: 1px;
+}
+
+.logo span{
+  color: var(--secondary);
+}
+
+.nav a{
+  display:block;
+  padding:10px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+
+.nav a:hover{
+  background:#1f2937;
+}
+
+/* Área principal do perfil */
+.profile-area{
+  padding:24px;
+  overflow-y:auto;
+}
+
+/* Header do perfil */
+.profile-header{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+/* Avatar grande */
+.profile-avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:#334155;
+  border:2px solid var(--primary);
+}
+
+/* Informações do usuário */
+.profile-info h2{
+  margin:0;
+}
+
+.profile-info p{
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* Estatísticas */
+.profile-stats{
+  display:flex;
+  gap:20px;
+  margin-top:10px;
+}
+
+.stat{
+  background:#020617;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+}
+
+/* Abas do perfil */
+.profile-tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.profile-tabs button{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.profile-tabs button.active{
+  background:var(--primary);
+  border:none;
+}
+
+/* Grade de conteúdo */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap:14px;
+}
+
+/* Cards */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+/* Wikis salvas */
+.wiki-item{
+  background:#020617;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin-bottom:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">GIB<span>IX</span></div>
+
+  <div class="nav">
+    <a href="index.html">🏠 Feed</a>
+    <a href="wiki.html">📚 Wikis</a>
+    <a href="perfil.html">🦸 Perfil</a>
+    <a href="chat.html">💬 Chats</a>
+    <a href="notificacoes.html">🔔 Notificações</a>
+    <a href="configuracoes.html">⚙️ Configurações</a>
+  </div>
+</div>
+
+
+<!-- CONTEÚDO DO PERFIL -->
+<div class="profile-area">
+
+  <!-- HEADER DO PERFIL -->
+  <div class="profile-header">
+    <div class="profile-avatar"></div>
+
+    <div class="profile-info">
+      <h2>@quadrinista</h2>
+      <p>Fã de HQs • Colecionador • Criador de conteúdo</p>
+
+      <div class="profile-stats">
+        <div class="stat">📬 32 posts</div>
+        <div class="stat">👥 1.240 seguidores</div>
+        <div class="stat">➡️ 210 seguindo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABAS -->
+  <div class="profile-tabs">
+    <button class="active">Posts</button>
+    <button>Wikis Salvas</button>
+    <button>Wikis Criadas</button>
+    <button>Sobre</button>
+  </div>
+
+  <!-- GRID DE POSTS DO USUÁRIO -->
+  <div class="grid">
+
+    <div class="card">
+      <b>Análise: Batman Ano Um</b>
+      <p style="color:var(--muted)">Leitura crítica com imagens e referências.</p>
+    </div>
+
+    <div class="card">
+      <b>Minha coleção de Mangás</b>
+      <p style="color:var(--muted)">Fotos e comentários.</p>
+    </div>
+
+    <div class="card">
+      <b>Teoria sobre Homem-Aranha</b>
+      <p style="color:var(--muted)">Discussão e evidências.</p>
+    </div>
+
+  </div>
+
+  <br>
+
+  <!-- WIKIS SALVAS (exemplo) -->
+  <h3 style="color:var(--secondary)">⭐ Wikis Salvas</h3>
+
+  <div class="grid">
+    <div class="wiki-item">📘 Wiki: Batman</div>
+    <div class="wiki-item">📘 Wiki: One Piece</div>
+    <div class="wiki-item">📘 Wiki: DC Comics</div>
+  </div>
+</div>
+
+</body>
+</html>

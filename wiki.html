@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>GIBIX — Wikis HQ</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Layout geral */
+.app{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+  background: var(--card);
+  border-right:1px solid var(--border);
+  padding:16px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:var(--primary);
+  letter-spacing: 1px;
+}
+
+.logo span{
+  color: var(--secondary);
+}
+
+.nav a{
+  display:block;
+  padding:10px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+
+.nav a:hover{
+  background:#1f2937;
+}
+
+/* Área principal */
+.wiki-area{
+  padding:24px;
+  overflow-y:auto;
+}
+
+/* Cabeçalho */
+.wiki-header{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.wiki-header h1{
+  margin:0;
+  color:var(--primary);
+}
+
+.wiki-meta{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:6px;
+}
+
+/* Abas de catálogo */
+.wiki-tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.wiki-tabs button{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.wiki-tabs button.active{
+  background:var(--primary);
+  border:none;
+}
+
+/* Grade de wikis */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap:14px;
+}
+
+/* Card de wiki */
+.wiki-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+.wiki-card h3{
+  margin:0 0 6px 0;
+}
+
+.wiki-card p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Página individual da wiki */
+.wiki-content{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  margin-top:20px;
+}
+
+.save-btn{
+  background:var(--secondary);
+  color:black;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* Comentários */
+.comments{
+  margin-top:20px;
+}
+
+.comment{
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  margin-bottom:8px;
+}
+
+.comment-input{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.comment-input input{
+  flex:1;
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+}
+
+.comment-input button{
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">GIB<span>IX</span></div>
+
+  <div class="nav">
+    <a href="index.html">🏠 Feed</a>
+    <a href="wiki.html">📚 Wikis</a>
+    <a href="perfil.html">🦸 Perfil</a>
+    <a href="chat.html">💬 Chats</a>
+    <a href="notificacoes.html">🔔 Notificações</a>
+    <a href="configuracoes.html">⚙️ Configurações</a>
+  </div>
+</div>
+
+
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="wiki-area">
+
+  <div class="wiki-header">
+    <h1>📚 Wikis do GIBIX</h1>
+    <div class="wiki-meta">
+      Enciclopédia colaborativa de HQs, mangás e quadrinhos.
+    </div>
+  </div>
+
+  <!-- ABAS -->
+  <div class="wiki-tabs">
+    <button class="active">Todas as Wikis</button>
+    <button>Wikis Aprovadas</button>
+    <button>Minhas Wikis Salvas</button>
+  </div>
+
+  <!-- CATÁLOGO GERAL -->
+  <div class="grid">
+
+    <div class="wiki-card">
+      <h3>📘 Batman</h3>
+      <p>História, versões e principais arcos do Cavaleiro das Trevas.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>📘 One Piece</h3>
+      <p>Guia completo do mundo dos piratas de Eiichiro Oda.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>📘 DC Comics</h3>
+      <p>Personagens, universos e cronologias.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>📘 Mangás Clássicos</h3>
+      <p>Obras históricas que moldaram o gênero.</p>
+    </div>
+
+  </div>
+
+  <!-- PÁGINA INDIVIDUAL DE UMA WIKI -->
+  <div class="wiki-content">
+
+    <h2>📘 Batman — Wiki</h2>
+    <p style="color:var(--muted)">Criado por: @curadoria • Atualizado: há 3 dias</p>
+
+    <p>
+      Batman é um dos personagens mais icônicos dos quadrinhos. Criado por Bob Kane e Bill Finger,
+      ele representa o vigilante de Gotham City, usando inteligência, tecnologia e treinamento extremo.
+    </p>
+
+    <h3>Principais Arcos</h3>
+    <ul>
+      <li>Batman: Ano Um</li>
+      <li>A Piada Mortal</li>
+      <li>O Longo Dia das Bruxas</li>
+      <li>Cavaleiro das Trevas</li>
+    </ul>
+
+    <button class="save-btn">⭐ Salvar nos Favoritos</button>
+
+    <!-- Comentários -->
+    <div class="comments">
+      <h3>💬 Comentários</h3>
+
+      <div class="comment">
+        <b>@quadrinista:</b> Excelente resumo!
+      </div>
+
+      <div class="comment">
+        <b>@colecionador:</b> Faltou mencionar Scott Snyder 👀
+      </div>
+
+      <div class="comment-input">
+        <input placeholder="Escreva um comentário...">
+        <button>Comentar</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

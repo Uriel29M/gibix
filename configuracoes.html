@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Configurações — GIBIX</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+/* RESET */
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  overflow:hidden;
+}
+
+/* GRID PRINCIPAL */
+.app{
+  display:grid;
+  grid-template-columns: 240px 1fr 300px;
+  height:100vh;
+  overflow-y:auto;
+}
+
+/* SIDEBAR FIXA */
+.sidebar{
+  background: var(--card);
+  border-right:1px solid var(--border);
+  padding:16px;
+  height:100vh;
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:var(--primary);
+  letter-spacing: 1px;
+}
+
+.logo span{
+  color: var(--secondary);
+}
+
+.nav a{
+  display:block;
+  padding:10px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+
+.nav a:hover{
+  background:#1f2937;
+}
+
+/* CENTRO */
+.content{
+  padding:20px;
+}
+
+/* CARDS DE CONFIG */
+.config-card{
+  background:var(--card);
+  padding:16px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  margin-bottom:16px;
+}
+
+.config-card h3{
+  margin-top:0;
+  color:var(--secondary);
+}
+
+.config-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:12px 0;
+}
+
+/* INPUTS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select{
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:8px;
+  border-radius:8px;
+  width:240px;
+}
+
+/* BOTÕES */
+.btn{
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn-danger{
+  background:#dc2626;
+}
+
+/* TOGGLE VISUAL */
+.toggle{
+  width:46px;
+  height:24px;
+  background:#1f2937;
+  border-radius:20px;
+  position:relative;
+  cursor:pointer;
+}
+
+.toggle::before{
+  content:"";
+  width:20px;
+  height:20px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:2px;
+  left:2px;
+}
+
+/* ===== AVATAR E BANNER (SÓ ORGANIZEI AQUI) ===== */
+.avatar-banner-grid{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap:16px;
+  align-items:center;
+}
+
+.avatar-preview{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:#334155;
+  border:2px dashed var(--primary);
+}
+
+.banner-preview{
+  width:100%;
+  height:120px;
+  border-radius:12px;
+  background:#020617;
+  border:2px dashed var(--secondary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+}
+
+/* ✅ CORREÇÃO PRINCIPAL — organizei sem mudar layout */
+.file-row{
+  display:flex;
+  flex-direction:column;   /* <- empilha verticalmente */
+  gap:8px;                  /* <- espaço entre input e botão */
+  margin-top:10px;
+}
+
+.file-row input{
+  width:100%;               /* <- ocupa toda a coluna */
+}
+
+/* ===== RIGHTBAR FIXA ===== */
+.rightbar{
+  background:var(--card);
+  border-left:1px solid var(--border);
+  padding:16px;
+  height:100vh;
+  overflow:hidden;
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+/* SEÇÕES */
+.section{
+  margin-bottom:20px;
+}
+
+.section h3{
+  margin-top:0;
+  color:var(--secondary);
+}
+
+/* WIKIS */
+.wiki-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.wiki-item{
+  background:#020617;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+}
+
+/* CHAT */
+.chat-box{
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:8px;
+  height:260px;
+  display:flex;
+  flex-direction:column;
+}
+
+.chat-messages{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+}
+
+.chat-input{
+  display:flex;
+  border-top:1px solid var(--border);
+}
+
+.chat-input input{
+  flex:1;
+  background:#020617;
+  color:white;
+  border:none;
+  padding:8px;
+}
+
+.chat-input button{
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">GIB<span>IX</span></div>
+
+  <div class="nav">
+    <a href="index.html">🏠 Feed</a>
+    <a href="wiki.html">📚 Wikis</a>
+    <a href="perfil.html">🦸 Perfil</a>
+    <a href="chat.html">💬 Chats</a>
+    <a href="notificacoes.html">🔔 Notificações</a>
+    <a href="configuracoes.html">⚙️ Configurações</a>
+  </div>
+</div>
+
+<!-- CENTRO - CONFIGURAÇÕES -->
+<div class="content">
+
+  <h2 style="margin-top:0;">Configurações</h2>
+
+  <!-- FOTO DE PERFIL E BANNER -->
+  <div class="config-card">
+    <h3>🖼️ Foto de Perfil e Banner</h3>
+
+    <div class="avatar-banner-grid">
+
+      <!-- Avatar -->
+      <div>
+      <div class="profile-avatar" id="profileAvatar"></div>
+
+        <div class="file-row">
+          <input type="file" accept="image/*">
+          <button class="btn">Trocar foto</button>
+        </div>
+      </div>
+
+      <!-- Banner -->
+      <div>
+        <div class="banner-preview">
+          Pré-visualização do banner
+        </div>
+        <div class="file-row">
+          <input type="file" accept="image/*">
+          <button class="btn">Trocar banner</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PERFIL -->
+  <div class="config-card">
+    <h3>👤 Perfil</h3>
+
+    <div class="config-row">
+      <span>Nome de usuário</span>
+      <input type="text" value="@seuusuario">
+    </div>
+
+    <div class="config-row">
+      <span>Email</span>
+      <input type="email" value="usuario@gibix.com">
+    </div>
+
+    <div class="config-row">
+      <span>Bio</span>
+      <input type="text" placeholder="Fã de HQs, mangás e quadrinhos...">
+    </div>
+
+    <button class="btn">Salvar alterações</button>
+  </div>
+
+  <!-- TROCAR SENHA -->
+  <div class="config-card">
+    <h3>🔑 Trocar senha</h3>
+
+    <div class="config-row">
+      <span>Senha atual</span>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <div class="config-row">
+      <span>Nova senha</span>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <div class="config-row">
+      <span>Confirmar nova senha</span>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <button class="btn">Atualizar senha</button>
+  </div>
+
+
+
+<!-- PRIVACIDADE -->
+  <div class="config-card">
+    <h3>🔐 Privacidade</h3>
+
+    <div class="config-row">
+      <span>Conta privada</span>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="config-row">
+      <span>Permitir mensagens de desconhecidos</span>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="config-row">
+      <span>Mostrar status online</span>
+      <div class="toggle"></div>
+    </div>
+  </div>
+
+  <!-- NOTIFICAÇÕES -->
+  <div class="config-card">
+    <h3>🔔 Notificações</h3>
+
+    <div class="config-row">
+      <span>Notificações por email</span>
+      <select>
+        <option>Todas</option>
+        <option>Somente importantes</option>
+        <option>Nenhuma</option>
+      </select>
+    </div>
+
+    <div class="config-row">
+      <span>Notificações de curtidas</span>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="config-row">
+      <span>Notificações de comentários</span>
+      <div class="toggle"></div>
+    </div>
+  </div>
+
+  <!-- APARÊNCIA -->
+  <div class="config-card">
+    <h3>🎨 Aparência</h3>
+
+    <div class="config-row">
+      <span>Tema</span>
+      <select>
+        <option>Escuro (padrão)</option>
+        <option>Claro</option>
+      </select>
+    </div>
+
+    <div class="config-row">
+      <span>Tamanho do texto</span>
+      <select>
+        <option>Normal</option>
+        <option>Grande</option>
+        <option>Extra grande</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- PERIGO -->
+  <div class="config-card">
+    <h3>⚠️ Conta</h3>
+
+    <div class="config-row">
+      <span>Excluir conta permanentemente</span>
+      <button class="btn btn-danger">Excluir conta</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- COLUNA DIREITA -->
+<div class="rightbar">
+
+  <div class="section">
+    <h3>📚 Catálogo de Wikis HQ</h3>
+    <div class="wiki-list">
+      <div class="wiki-item">⭐ História da Marvel</div>
+      <div class="wiki-item">📘 Batman</div>
+      <div class="wiki-item">🧠 Mangás Clássicos</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>🏆 Wikis Aprovadas</h3>
+    <div class="wiki-list">
+      <div class="wiki-item">🏆 DC Comics</div>
+      <div class="wiki-item">🏆 Shonen Jump</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>💬 Chat Público — GIBIX</h3>
+    <div class="chat-box">
+      <div class="chat-messages">
+        <p><b>@mangaka:</b> Alguém já leu Akira?</p>
+        <p><b>@colecionador:</b> Sim! Obra-prima!</p>
+      </div>
+
+      <div class="chat-input">
+        <input placeholder="Digite sua mensagem...">
+        <button>Enviar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+const API = "http://localhost:3000";
+
+// ---------- UPLOAD DE AVATAR ----------
+document.querySelectorAll('input[type="file"]')[0].addEventListener("change", async function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+
+  const formData = new FormData();
+  formData.append("avatar", file);
+
+  const response = await fetch(API + "/upload/avatar", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await response.json();
+
+  const avatarUrl = API + data.imageUrl;
+
+  // SALVA
+  localStorage.setItem("gibix_avatar", avatarUrl);
+
+  // MOSTRA NO CÍRCULO (CORREÇÃO AQUI 👇)
+  const avatarDiv = document.getElementById("profileAvatar");
+  avatarDiv.style.backgroundImage = `url(${avatarUrl})`;
+  avatarDiv.style.backgroundSize = "cover";
+
+  alert("Foto de perfil atualizada!");
+});
+
+// ---------- UPLOAD DE BANNER ----------
+document.querySelectorAll('input[type="file"]')[1].addEventListener("change", async function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+
+  const formData = new FormData();
+  formData.append("banner", file);
+
+  const response = await fetch(API + "/upload/banner", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await response.json();
+
+  const bannerUrl = API + data.imageUrl;
+
+  localStorage.setItem("gibix_banner", bannerUrl);
+
+  document.querySelector(".banner-preview").style.backgroundImage =
+    `url(${bannerUrl})`;
+  document.querySelector(".banner-preview").style.backgroundSize = "cover";
+
+  alert("Banner atualizado!");
+});
+
+// ---------- CARREGAR AO ABRIR A PÁGINA (UM SÓ window.onload) ----------
+window.onload = () => {
+  const savedAvatar = localStorage.getItem("gibix_avatar");
+  const savedBanner = localStorage.getItem("gibix_banner");
+
+  const avatarDiv = document.getElementById("profileAvatar");
+
+  if(savedAvatar){
+    avatarDiv.style.backgroundImage = `url(${savedAvatar})`;
+    avatarDiv.style.backgroundSize = "cover";
+  }
+
+  if(savedBanner){
+    document.querySelector(".banner-preview").style.backgroundImage =
+      `url(${savedBanner})`;
+    document.querySelector(".banner-preview").style.backgroundSize = "cover";
+  }
+};
+</script>
+
+</body>
+</html>

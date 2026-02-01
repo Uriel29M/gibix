@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Criar Conta — GIBIX</title>
+<style>
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #8b5cf6;
+  --secondary: #22c55e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+/* CONTAINER CENTRAL */
+.signup-wrapper{
+  width:100%;
+  max-width:480px;
+  padding:20px;
+}
+
+/* CARD */
+.signup-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+/* LOGO */
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:bold;
+  color:var(--primary);
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+
+.logo span{
+  color:var(--secondary);
+}
+
+/* TÍTULO */
+.signup-card h2{
+  margin-top:0;
+  text-align:center;
+}
+
+/* SUBTEXTO */
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+/* CAMPOS */
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:12px;
+}
+
+.field label{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.field input{
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+}
+
+/* LINHA DUPLA (nome + usuário) */
+.row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+
+/* BOTÃO PRINCIPAL */
+.btn{
+  width:100%;
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* DIVISOR */
+.divider{
+  text-align:center;
+  margin:16px 0;
+  color:var(--muted);
+}
+
+/* GOOGLE */
+.google-btn{
+  width:100%;
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* RODAPÉ */
+.footer{
+  text-align:center;
+  margin-top:16px;
+  font-size:14px;
+}
+
+.footer a{
+  color:var(--secondary);
+  text-decoration:none;
+}
+
+/* TERMOS */
+.terms{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-wrapper">
+
+  <div class="signup-card">
+
+    <div class="logo">GIB<span>IX</span></div>
+
+    <h2>Criar conta</h2>
+    <p class="subtitle">
+      Junte-se à comunidade de HQs, mangás e quadrinhos.
+    </p>
+
+    <div class="row">
+      <div class="field">
+        <label>Nome</label>
+        <input type="text" placeholder="Seu nome">
+      </div>
+
+      <div class="field">
+        <label>Usuário</label>
+        <input type="text" placeholder="@seuusuario">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="voce@email.com">
+    </div>
+
+    <div class="field">
+      <label>Senha</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <div class="field">
+      <label>Confirmar senha</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <button class="btn" onclick="window.location='perfil.html'">
+      Criar conta
+    </button>
+
+    <div class="divider">ou</div>
+
+    <button class="google-btn">
+      Criar conta com Google
+    </button>
+
+    <div class="terms">
+      Ao criar sua conta, você concorda com nossos
+      <a href="#">Termos de uso</a> e <a href="#">Política de privacidade</a>.
+    </div>
+
+    <div class="footer">
+      Já tem conta?
+      <a href="login.html">Entrar</a>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
